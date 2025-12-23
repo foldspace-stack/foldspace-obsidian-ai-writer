@@ -1,0 +1,1 @@
+1. 在win下 `npm` 命令为 `npm.cmd`

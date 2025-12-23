@@ -1,90 +1,113 @@
-# Obsidian Sample Plugin
+# FoldSpace AI Writer Obsidian Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+一个功能强大的Obsidian插件，为您提供AI写作助手功能，常驻在编辑区右侧，支持大模型对话和MCP工具调用。
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## 功能特性
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open modal (simple)" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- **常驻右侧面板**：在Obsidian编辑区右侧显示交互式对话框
+- **快速文本引用**：双击选中的文本，自动发送到右侧面板
+- **大模型对话**：支持调用OpenAI等大模型进行对话，获取AI辅助内容
+- **MCP工具集成**：通过@langchain/mcp-adapters调用各种MCP工具执行任务
+- **个性化配置**：支持配置大模型API地址、密钥和MCP工具列表
 
-## First time developing plugins?
+## 安装方法
 
-Quick starting guide for new plugin devs:
+### 手动安装
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+1. 下载插件的最新版本（.zip文件）
+2. 解压到Obsidian的插件目录（通常是`VaultFolder/.obsidian/plugins/`）
+3. 在Obsidian的设置中启用"FoldSpace AI Writer"插件
 
-## Releasing new releases
+### 从源码构建
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+1. 克隆仓库：
+   ```bash
+   git clone https://github.com/yourusername/foldspace-obsidian-ai-writer.git
+   ```
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+2. 安装依赖：
+   ```bash
+   cd foldspace-obsidian-ai-writer
+   npm.cmd install
+   ```
 
-## Adding your plugin to the community plugin list
+3. 构建插件：
+   ```bash
+   npm.cmd run build
+   ```
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+4. 复制构建产物到Obsidian插件目录
 
-## How to use
+## 使用说明
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### 基本使用
 
-## Manually installing the plugin
+1. **激活右侧面板**：
+   - 点击Obsidian左侧边栏的"FoldSpace AI Writer"图标
+   - 或使用快捷键（默认：Ctrl+P -> "Toggle FoldSpace AI Writer"）
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+2. **发送文本到面板**：
+   - 在编辑区选中任意文本
+   - 双击选中的文本，自动发送到右侧面板
 
-## Improve code quality with eslint
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
+3. **与AI对话**：
+   - 在右侧面板的输入框中输入问题或指令
+   - 按Enter或点击发送按钮
+   - 等待AI返回结果
 
-## Funding URL
+### 使用MCP工具
 
-You can include funding URLs where people who use your plugin can financially support it.
+1. **选择文本**：在编辑区选中需要处理的文本
+2. **点击工具按钮**：在右侧面板上方点击对应的MCP工具按钮
+3. **查看结果**：工具执行完成后，结果会显示在面板中
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+## 配置选项
 
-```json
-{
-    "fundingUrl": "https://buymeacoffee.com"
-}
+在Obsidian的设置面板中找到"FoldSpace AI Writer"插件，进行以下配置：
+
+### AI模型设置
+
+- **Model API URL**：大模型的API地址（默认：`https://api.openai.com/v1/chat/completions`）
+- **Model API Key**：大模型的API密钥
+
+### MCP工具设置
+
+配置可用的MCP工具列表，每个工具包含：
+- **名称**：工具的显示名称
+- **描述**：工具的功能描述
+- **命令**：工具的调用命令
+
+## 开发说明
+
+### 项目结构
+
+```
+src/
+├── main.ts          # 插件主入口，包含面板实现和事件处理
+├── settings.ts      # 插件设置配置
+└── styles.css       # 插件样式
 ```
 
-If you have multiple URLs, you can also do:
+### 构建命令
 
-```json
-{
-    "fundingUrl": {
-        "Buy Me a Coffee": "https://buymeacoffee.com",
-        "GitHub Sponsor": "https://github.com/sponsors",
-        "Patreon": "https://www.patreon.com/"
-    }
-}
-```
+- 开发模式：`npm.cmd run dev`
+- 生产构建：`npm.cmd run build`
 
-## API Documentation
+### 依赖库
 
-See https://docs.obsidian.md
+- `@langchain/mcp-adapters`：MCP工具调用
+- `obsidian`：Obsidian插件API
+- `typescript`：类型支持
+- `esbuild`：构建工具
+
+## 许可证
+
+MIT License
+
+## 贡献
+
+欢迎提交Issue和Pull Request来改进这个插件！
+
+## 联系方式
+
+如有问题或建议，请通过GitHub Issues与我们联系。

@@ -1,0 +1,127 @@
+.ai-writer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+    padding: 10px;
+}
+
+.ai-writer-messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+}
+
+.ai-writer-message {
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.ai-writer-message.user {
+    align-self: flex-end;
+    background-color: var(--interactive-accent);
+    color: white;
+}
+
+.ai-writer-message.assistant {
+    align-self: flex-start;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+}
+
+.ai-writer-mcp-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+}
+
+.ai-writer-mcp-button {
+    padding: 6px 12px;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+}
+
+.ai-writer-mcp-button:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.ai-writer-input-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+}
+
+.ai-writer-input {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+    resize: none;
+    min-height: 60px;
+    font-family: var(--font-family-editor);
+    font-size: var(--font-size-normal);
+}
+
+.ai-writer-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+}
+
+.ai-writer-send-button {
+    padding: 0 20px;
+    background-color: var(--interactive-accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background-color 0.2s;
+}
+
+.ai-writer-send-button:hover {
+    background-color: var(--interactive-accent-hover);
+}
+
+.ai-writer-send-button:active {
+    background-color: var(--interactive-accent-pressed);
+}
+
+.message-content {
+    line-height: 1.5;
+}
+
+/* 滚动条样式 */
+.ai-writer-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ai-writer-messages::-webkit-scrollbar-track {
+    background-color: var(--background-secondary);
+    border-radius: 4px;
+}
+
+.ai-writer-messages::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-bg);
+    border-radius: 4px;
+}
+
+.ai-writer-messages::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-bg);
+}
