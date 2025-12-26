@@ -3,7 +3,7 @@ import {DEFAULT_SETTINGS, MyPluginSettings, SampleSettingTab} from "./settings";
 import { MultiServerMCPClient } from '@langchain/mcp-adapters';
 import { AIWriterView } from "./components/AIWriterView";
 import './styles.css';
-
+import './styles/globals.css'
 // 定义右侧面板视图的ID
 const AI_WRITER_VIEW_TYPE = 'ai-writer-view';
 
@@ -95,9 +95,6 @@ export default class MyPlugin extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
-		// 如果视图已存在，更新MCP工具
-		if (this.aiWriterView) {
-			this.aiWriterView.renderMCPTools();
-		}
+		// MCP工具会在React组件中自动更新
 	}
 }

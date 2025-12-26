@@ -6,3 +6,164 @@ available in the app when your plugin is enabled.
 If your plugin does not need CSS, delete this file.
 
 */
+
+.ai-writer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.ai-writer-conversation {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 10px;
+    background: var(--background-primary);
+}
+
+.conversation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.conversation-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.conversation-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: var(--text-muted);
+    gap: 8px;
+}
+
+.conversation-empty-state h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.conversation-empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.message {
+    display: flex;
+    max-width: 100%;
+}
+
+.message.user {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.message.assistant {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 85%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.message.user .message-content {
+    background: var(--background-secondary);
+    border-radius: 12px;
+    padding: 12px 16px;
+    color: var(--text-normal);
+}
+
+.message.assistant .message-content {
+    color: var(--text-normal);
+}
+
+.message-response {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.ai-writer-mcp-tools {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 8px 0;
+}
+
+.ai-writer-mcp-button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.ai-writer-mcp-button:hover {
+    background: var(--interactive-accent-hover);
+}
+
+.ai-writer-input-container {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.ai-writer-input {
+    flex: 1;
+    min-height: 40px;
+    max-height: 120px;
+    resize: vertical;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    background: var(--background-primary);
+    color: var(--text-normal);
+}
+
+.ai-writer-input:focus {
+    outline: none;
+    border-color: var(--interactive-accent);
+    box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+.ai-writer-send-button {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 40px;
+}
+
+.ai-writer-send-button:hover {
+    background: var(--interactive-accent-hover);
+}
+
+.ai-writer-send-button:disabled {
+    background: var(--background-modifier-hover);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}

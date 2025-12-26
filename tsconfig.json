@@ -1,10 +1,16 @@
 {
 	"compilerOptions": {
 		"baseUrl": "src",
+		"paths": {
+			"@/*": [
+				"./*"
+			]
+		},
 		"inlineSourceMap": true,
 		"inlineSources": true,
 		"module": "ESNext",
 		"target": "ES6",
+		"jsx": "react-jsx",
 		"allowJs": true,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
@@ -25,6 +31,10 @@
 		]
 	},
 	"include": [
-		"src/**/*.ts"
+		"src/**/*.ts",
+		"src/**/*.tsx"
+	],
+	"exclude": [
+		"src/components/ai-elements/**/*"
 	]
 }
